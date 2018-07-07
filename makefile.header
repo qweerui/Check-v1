@@ -1,0 +1,37 @@
+#------------------------------------------------------------------------------
+#             Tan-Tracker Carbon cycle Data Assimilation System               #
+#------------------------------------------------------------------------------
+#BOP
+#
+#	!Description : Tan-Tracker Source Code TTsrc dir
+#
+#   Record of revision:
+#              Date:        Programmer:         Description of change:
+#        ------------     --------------       ------------------------
+#        2018.01.03             Hanrui            NV2.0 original code
+#EOP
+#------------------------------------------------------------------------------
+#BOC
+#
+#--- Define dir ---
+ROOT    	=/data/sciarr/ruihan/OSSEs_TTDF/DF_3Day_00/TTCode
+TTMain		=$(ROOT)/TTMain
+TimeCTL		=$(ROOT)/TimeCTL
+TTsrc		=$(ROOT)/TTsrc
+Sampling	=$(ROOT)/Sampling
+TimeBack	=$(ROOT)/TimeBack
+bin			=$(ROOT)/bin
+lib			=$(ROOT)/lib
+inc 		=$(ROOT)/inc
+
+#--- NETCDF dir ---
+NETCDFDIR	=/home/ruihan/opt/starman/software/netcdf/4.4.1.1/68c4969920c770dbd58a5336d41841ae0f7d9603
+NETCDFINC	=$(NETCDFDIR)/include
+NETCDFLIB	=$(NETCDFDIR)/lib -lnetcdf -lnetcdff
+MKLFLAG		=-mkl=sequential -lpthread -ldl -i-dynamic 
+
+#--- ifort flags ---
+FC			=ifort -O2
+FLAG		=$(MKLFLAG) -L$(NETCDFLIB)
+
+#EOC
